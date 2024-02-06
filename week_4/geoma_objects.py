@@ -1,22 +1,22 @@
 class Rectangle:
-    def __init__(self, a, b):
-        self.__a = a
-        self.__b = b
-        self.color = "red"
+    def __init__(self, a: float, b: float):
+        self.__a: float = a
+        self.__b: float = b
 
-    def get_perimeter(self):
-        p = (self.__a + self.__b) * 2
-        return p
+    def get_perimeter(self) -> float:
+        return (self.__a + self.__b) * 2
     
-    def get_a(self):
+    def get_area(self) -> float:
+        return self.__a * self.__b
+         
+    def get_a(self) -> float:
         return self.__a
-
-    def set_a(self, new_a):
-        self.__a = new_a
+    
+    def get_b(self) -> float:
+        return self.__b
 
 
 # if __name__ == "__main__":
 #     rect1 = Rectangle(3, 5)
-#     print(rect1.a)
-#     print(rect1.get_perimeter())
-
+#     assert rect1.get_area() == 15, "wrong area"
+#     assert rect1.get_perimeter() == 16, "wrong perimeter"
