@@ -8,7 +8,6 @@ class Human:
         return f"{self.name} {self.age} {self.gender}"
     
 
-
 class Doctor(Human):
     def __init__(self, name, age, gender, speciality):
         super().__init__(name, age, gender)
