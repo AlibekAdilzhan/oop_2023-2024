@@ -16,7 +16,13 @@ class Film:
     def get_cash(self):
         return self.cash
     
+    def __int__(self):
+        return self.cash + 100
+
     def set_new_cash(self, new_cash: float):
         self.cash = new_cash
 
+
+f1 = Film("asdf", "adf", 2001, 1500)
+print(int(f1))
 
