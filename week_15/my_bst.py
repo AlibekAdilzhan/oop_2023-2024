@@ -15,7 +15,7 @@ def bfs(node: Node):
     q = [node]
     while q != []:
         curr = q.pop(0)
-        print(curr.data)
+        print(curr.data, end=" ")
         if curr.left is not None:
             q.append(curr.left)
         if curr.right is not None:
@@ -54,9 +54,29 @@ def get_min(node: Node):
             return get_min(node.left)
 
 
+def delete(node: Node, data):
+    if data > node.data:
+        node.right = delete(node.right, data)
+    elif data < node.data:
+        node.left = delete(node.left, data)
+    else:
+        if node.left is None and node.right is None:
+            node = None
+        elif node.left is None:
+            return node.right
+        elif node.right is None:
+            return node.left
+        else:
+            min_data = get_min(node.right)
+            node.data = min_data
+            node.right = delete(node.right, min_data)
+    return node
+
 root = Node(13)
 my_list = [7, 15, 3, 8, 14, 19, 18]
 for x in my_list:
     insert(root, x)
-
-print(get_min(root))
+bfs(root)
+delete(root, 13)
+print()
+bfs(root)
